@@ -1,0 +1,49 @@
+# Demo Video Placeholder
+
+This file serves as a placeholder for demo videos that can be added to showcase QuickID functionality.
+
+## Suggested Video Content:
+
+1. **Main Demo Video** (2-3 minutes)
+   - QuickID interface walkthrough
+   - Photo capture process
+   - Student management features
+   - ID card generation
+
+2. **Feature Highlights** (30-60 seconds each)
+   - Smart photo capture
+   - Name management system
+   - Search functionality
+   - Mobile responsiveness
+
+3. **Tutorial Videos** (1-2 minutes each)
+   - Getting started guide
+   - Advanced features
+   - Troubleshooting common issues
+
+## Video Specifications:
+- Format: MP4 (H.264)
+- Resolution: 1920x1080 (Full HD)
+- Frame Rate: 30fps
+- Duration: 2-5 minutes for main demo
+- File Size: Keep under 50MB for web optimization
+
+## File Naming Convention:
+- demo-main.mp4
+- feature-photo-capture.mp4
+- feature-name-management.mp4
+- tutorial-getting-started.mp4
+
+## Integration:
+Videos can be embedded in the HTML using:
+```html
+<video controls>
+    <source src="./images/demo-main.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+```
+
+## Accessibility:
+- Include closed captions (SRT files)
+- Provide video transcripts
+- Ensure good contrast and readability
