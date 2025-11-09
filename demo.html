@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickID Demo - Interactive Photo Capture</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .demo-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .demo-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-xl);
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-header h1 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .demo-header p {
+            color: var(--text-light);
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+    
+    <div class="demo-page">
+        <div class="demo-container">
+            <div class="demo-header">
+                <h1><i class="fas fa-camera"></i> QuickID Demo</h1>
+                <p>Experience the power of QuickID's photo capture system</p>
+            </div>
+            
+            <div class="demo-interface-full">
+                <div class="camera-section">
+                    <h3>Camera View</h3>
+                    <div class="camera-view">
+                        <video id="cameraVideo" autoplay></video>
+                        <canvas id="cameraCanvas"></canvas>
+                        <div class="face-overlay"></div>
+                    </div>
+                    <button id="captureBtn" class="capture-button">
+                        <i class="fas fa-camera"></i>
+                        Capture Photo
+                    </button>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Student Information</h3>
+                    <form id="studentForm">
+                        <div class="form-group">
+                            <label>Student Name *</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Student ID *</label>
+                            <input type="text" id="studentId" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Class/Grade *</label>
+                            <input type="text" id="studentClass" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Department</label>
+                            <input type="text" id="studentDept">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="studentEmail">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="studentPhone">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Save Student
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="capturedPhoto" class="captured-photo" style="display: none;">
+                <h3>Captured Photo</h3>
+                <img id="photoPreview" src="" alt="Captured Photo">
+                <div class="photo-actions">
+                    <button onclick="retakePhoto()" class="btn btn-secondary">
+                        <i class="fas fa-redo"></i>
+                        Retake Photo
+                    </button>
+                    <button onclick="saveStudent()" class="btn btn-primary">
+                        <i class="fas fa-check"></i>
+                        Confirm & Save
+                    </button>
+                </div>
+            </div>
+            
+            <div id="successMessage" class="message success" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                Student saved successfully!
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/script.js"></script>
+    <script>
+        // Enhanced demo functionality
+        let stream = null;
+        let capturedImage = null;
+        
+        // Start camera when page loads
+        window.addEventListener('load', async function() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: 640, 
+                        height: 480,
+                        facingMode: 'user'
+                    } 
+                });
+                
+                const video = document.getElementById('cameraVideo');
+                video.srcObject = stream;
+                video.play();
+            } catch (err) {
+                console.error('Error accessing camera:', err);
+                showMessage('Camera access denied. Please allow camera access to use the demo.', 'error');
+            }
+        });
+        
+        // Capture photo
+        document.getElementById('captureBtn').addEventListener('click', function() {
+            const video = document.getElementById('cameraVideo');
+            const canvas = document.getElementById('cameraCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            capturedImage = canvas.toDataURL('image/png');
+            
+            // Show captured photo
+            const photoPreview = document.getElementById('photoPreview');
+            const capturedPhoto = document.getElementById('capturedPhoto');
+            
+            photoPreview.src = capturedImage;
+            capturedPhoto.style.display = 'block';
+            
+            // Hide camera view
+            document.querySelector('.camera-section').style.display = 'none';
+            
+            showMessage('Photo captured successfully!', 'success');
+        });
+        
+        // Retake photo
+        window.retakePhoto = function() {
+            const capturedPhoto = document.getElementById('capturedPhoto');
+            const cameraSection = document.querySelector('.camera-section');
+            
+            capturedPhoto.style.display = 'none';
+            cameraSection.style.display = 'block';
+            
+            capturedImage = null;
+        };
+        
+        // Save student
+        window.saveStudent = function() {
+            const name = document.getElementById('studentName').value;
+            const id = document.getElementById('studentId').value;
+            const classGrade = document.getElementById('studentClass').value;
+            const dept = document.getElementById('studentDept').value;
+            const email = document.getElementById('studentEmail').value;
+            const phone = document.getElementById('studentPhone').value;
+            
+            if (!name || !id || !classGrade) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            if (!capturedImage) {
+                showMessage('Please capture a photo first.', 'error');
+                return;
+            }
+            
+            // Simulate saving
+            const saveBtn = document.querySelector('#capturedPhoto .btn-primary');
+            const originalText = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<span class="loading"></span> Saving...';
+            saveBtn.disabled = true;
+            
+            setTimeout(() => {
+                showMessage('Student saved successfully!', 'success');
+                
+                // Reset form
+                document.getElementById('studentForm').reset();
+                retakePhoto();
+                
+                saveBtn.innerHTML = originalText;
+                saveBtn.disabled = false;
+            }, 2000);
+        };
+        
+        // Student form submission
+        document.getElementById('studentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveStudent();
+        });
+        
+        // Clean up camera when leaving page
+        window.addEventListener('beforeunload', function() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+        });
+    </script>
+</body>
+</html>

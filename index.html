@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickID - Smart Photo Management for Schools & Colleges</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-id-card"></i>
+                <span>QuickID</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#screenshots" class="nav-link">Screenshots</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="btn btn-primary download-btn" onclick="downloadApp()">
+                    <i class="fas fa-download"></i>
+                    Get App
+                </a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="highlight">QuickID</span> - Smart Photo Management
+                </h1>
+                <p class="hero-subtitle">
+                    Revolutionize how schools and colleges manage student photos with our intelligent identification system
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openDemo()">
+                        <i class="fas fa-play"></i>
+                        Try Demo
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('features')">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="app-interface">
+                            <div class="app-header">
+                                <i class="fas fa-camera"></i>
+                                <span>QuickID Camera</span>
+                            </div>
+                            <div class="camera-view">
+                                <div class="face-outline"></div>
+                                <div class="capture-button"></div>
+                            </div>
+                            <div class="name-input">
+                                <input type="text" placeholder="Enter student name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Everything you need for efficient student photo management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3>Smart Photo Capture</h3>
+                    <p>High-quality photo capture with automatic face detection and alignment for perfect student photos</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tag"></i>
+                    </div>
+                    <h3>Name Management</h3>
+                    <p>Easy name entry and management system with auto-suggestions and duplicate detection</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Student Database</h3>
+                    <p>Organized storage of student information with search, filter, and export capabilities</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>ID Card Generation <span class="coming-soon-banner">Coming Soon</span></h3>
+                    <p>Automatically generate professional ID cards with student photos and information</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Quick Search</h3>
+                    <p>Find any student instantly with our powerful search functionality across all data</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Your data is protected with enterprise-grade security and privacy controls</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Application Screenshots</h2>
+                <p class="section-subtitle">See QuickID in action with these real interface screenshots</p>
+            </div>
+            <div class="screenshots-grid">
+                <div class="screenshot-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="screenshot-image">
+                        <img src="./images/image cap.jpg" alt="Photo Capture Interface" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDMwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRjVGNUY1Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LXNpemU9IjE0Ij5QaG90byBDYXB0dXJlPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <h3>Photo Capture Interface</h3>
+                    <p>Clean and intuitive camera interface for taking student photos with face detection</p>
+                </div>
+                <div class="screenshot-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="screenshot-image">
+                        <img src="./images/search.jpg" alt="Student Search" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDMwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRjVGNUY1Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LXNpemU9IjE0Ij5TdHVkZW50IFNlYXJjaDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <h3>Student Search</h3>
+                    <p>Powerful search functionality to find students quickly with advanced filters</p>
+                </div>
+                <div class="screenshot-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="screenshot-image">
+                        <img src="./images/setting.jpg" alt="Bulk Export" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDMwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRjVGNUY1Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LXNpemU9IjE0Ij5CdWxrIEV4cG9ydDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <h3>Settings Page</h3>
+                    <p>Customize QuickID settings, preferences, and application configuration</p>
+                </div>
+                <div class="screenshot-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="screenshot-image">
+                        <img src="./images/export.jpg" alt="Settings Page" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDMwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRjVGNUY1Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LXNpemU9IjE0Ij5TZXR0aW5ncyBQYWdlPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <h3>Bulk Export</h3>
+                    <p>Export student data and photos as ZIP files and CSV reports for easy management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="demo-container">
+                <div class="demo-content">
+                    <h2>Try QuickID Demo</h2>
+                    <p>Experience the power of QuickID with our interactive demo</p>
+                    <div class="demo-features">
+                        <div class="demo-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Take a test photo</span>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Add student information</span>
+                        </div>
+                        <div class="demo-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Generate sample ID card</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openDemo()">
+                        <i class="fas fa-play"></i>
+                        Launch Demo
+                    </button>
+                </div>
+                <div class="demo-interface">
+                    <div class="demo-phone">
+                        <div class="demo-screen">
+                            <div class="demo-camera">
+                                <div class="demo-face"></div>
+                                <div class="demo-capture-btn"></div>
+                            </div>
+                            <div class="demo-form">
+                                <input type="text" placeholder="Student Name" id="demoName">
+                                <input type="text" placeholder="Student ID" id="demoId">
+                                <input type="text" placeholder="Class/Grade" id="demoClass">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About QuickID</h2>
+                    <p>QuickID is a revolutionary photo management system designed specifically for educational institutions. Our platform streamlines the process of capturing, organizing, and managing student photos while maintaining the highest standards of data security and privacy.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>10,000+</h3>
+                            <p>Students Managed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>Schools Using QuickID</p>
+                        </div>
+                        <div class="stat">
+                            <h3>99.9%</h3>
+                            <p>Uptime Guarantee</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-visual">
+                        <div class="visual-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>For Schools</h4>
+                        </div>
+                        <div class="visual-card">
+                            <i class="fas fa-university"></i>
+                            <h4>For Colleges</h4>
+                        </div>
+                        <div class="visual-card">
+                            <i class="fas fa-users"></i>
+                            <h4>For Students</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to transform your student photo management?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Contact Email</h4>
+                            <p><a href="mailto:team@crafzio.in">team@crafzio.in</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h4>Support Email</h4>
+                            <p><a href="mailto:crafzio.help.team@gmail.com">crafzio.help.team@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h4>Website</h4>
+                            <p><a href="https://crafzio.in" target="_blank">crafzio.in</a></p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="School/College Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-id-card"></i>
+                        <span>QuickID</span>
+                    </div>
+                    <p>Revolutionizing student photo management for educational institutions worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#screenshots">Screenshots</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="#">Photo Capture</a></li>
+                        <li><a href="#">Name Management</a></li>
+                        <li><a href="#">ID Card Generation</a></li>
+                        <li><a href="#">Student Database</a></li>
+                        <li><a href="#">Search & Filter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 QuickID. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDemo()">&times;</span>
+            <div class="demo-modal-content">
+                <h2>QuickID Demo</h2>
+                <div class="demo-interface-full">
+                    <div class="camera-section">
+                        <div class="camera-view">
+                            <video id="cameraVideo" autoplay></video>
+                            <canvas id="cameraCanvas"></canvas>
+                            <div class="face-overlay"></div>
+                        </div>
+                        <button id="captureBtn" class="capture-button">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="form-section">
+                        <h3>Student Information</h3>
+                        <form id="studentForm">
+                            <div class="form-group">
+                                <label>Student Name</label>
+                                <input type="text" id="studentName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Student ID</label>
+                                <input type="text" id="studentId" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Class/Grade</label>
+                                <input type="text" id="studentClass" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Department</label>
+                                <input type="text" id="studentDept">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Student</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="capturedPhoto" class="captured-photo" style="display: none;">
+                    <h3>Captured Photo</h3>
+                    <img id="photoPreview" src="" alt="Captured Photo">
+                    <div class="photo-actions">
+                        <button onclick="retakePhoto()" class="btn btn-secondary">Retake</button>
+                        <button onclick="saveStudent()" class="btn btn-primary">Save Student</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Store Selection Modal -->
+    <div id="storeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeStoreModal()">&times;</span>
+            <div class="store-modal-content">
+                <h2>Choose Your Platform</h2>
+                <p>Select your device to download QuickID</p>
+                <div class="store-options">
+                    <a href="https://play.google.com/store/apps/details?id=com.quickid.app" target="_blank" class="store-option">
+                        <div class="store-icon">
+                            <i class="fab fa-google-play"></i>
+                        </div>
+                        <div class="store-info">
+                            <h3>Google Play Store</h3>
+                            <p>For Android devices</p>
+                        </div>
+                    </a>
+                    <a href="https://apps.apple.com/app/quickid/id123456789" target="_blank" class="store-option">
+                        <div class="store-icon">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <div class="store-info">
+                            <h3>App Store</h3>
+                            <p>For iOS devices</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
